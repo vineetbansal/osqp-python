@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows: ['Build Default', 'Build MKL Mac/Linux']
     types: [completed]
-    tags:
-      - '*'
 
 jobs:
   release:
@@ -24,6 +22,7 @@ jobs:
         run: ls -la dist/*
 
       - name: Upload wheels to pypi
+        if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD: ${{ secrets.pypi_password }}
