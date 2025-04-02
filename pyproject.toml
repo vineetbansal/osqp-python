@@ -3,7 +3,7 @@ requires = ["scikit-build-core", "pybind11"]
 build-backend = "scikit_build_core.build"
 
 [project]
-name = "osqp"
+name = "vineetb-osqp"
 dynamic = ["version"]
 description = "OSQP: The Operator Splitting QP Solver"
 readme = "README.md"
@@ -28,7 +28,7 @@ Homepage = "https://osqp.org/"
 
 [project.optional-dependencies]
 mkl = [
-    "osqp-mkl",
+    "vineetb-osqp-mkl",
 ]
 # Include this `dev` extra till pip completely supports PEP735
 dev = [
@@ -44,7 +44,7 @@ dev = [
     "scipy!=1.12.0",
 ]
 cu12 = [
-    "osqp-cu12",
+    "vineetb-osqp-cu12",
 ]
 
 [dependency-groups]
